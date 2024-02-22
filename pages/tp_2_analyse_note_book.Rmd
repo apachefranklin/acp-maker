@@ -1,0 +1,36 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+head(iris)
+mydata=iris[,1:4]
+pca=prcomp(mydata,center = TRUE,scale. = TRUE)
+pca
+pca$sdev^2
+plot(pca, type="l")
+a=4
+a^2
+pca$rotation #permet d'obtenir les colonnes 
+
+```
+```{r}
+head(pca$x)
+```
+Representation des projections des donnees centrees dans le premier plan principal
+```{r}
+plot(pca$x[,1],pca$x[,2],pch=10,xlab="PC1",ylab = "PC2",col=iris[,5])
+```
+Interpretation de l'ACP
+1) Choix du nombre d'axes
+2) Interpretation des axes
+3) Representation graphique
+4) yQualite de representation
+5) Synthe
+
+LA premeire information qui sort d'une acp n'est pas d'emble pertinante mais permet de justifier les resultats
